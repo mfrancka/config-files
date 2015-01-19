@@ -122,12 +122,13 @@ set visualbell
 " is unset, this does nothing.
 set t_vb=
 
-" Enable use of the mouse for all modes
-set mouse=a
+" Enable use of the mouse for visual mode only
+set mouse=v
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
-set cmdheight=2
+" I changed to 1 line, because I don't see this problem
+set cmdheight=1
 
 " Display line numbers on the left
 set number
