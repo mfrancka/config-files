@@ -19,3 +19,9 @@ Next run vim and do:
 ```vim
 :PluginInstall
 ```
+
+
+## Additional programs needed:
+python-jedi
+python3-jedi
+exuberant-ctags
