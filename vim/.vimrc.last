@@ -49,7 +49,6 @@ let g:lightline = {
             \ "\<C-s>" : 'S-B',
             \ '?'      : '      ' }
  map <F4> :NERDTreeToggle<CR>
- map <F6> :<CR>
 "let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 "let &colorcolumn="80,".join(range(120,999),",")
@@ -62,3 +61,7 @@ let g:syntastic_mode_map = {
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['flake8', 'python']
 let g:syntastic_puppet_checkers = ['puppetlint', 'puppet']
+
+"My Keybindings
+"Remove search highlight when enter hit after search
+noremap <CR> :noh<CR>
