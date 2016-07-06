@@ -1,0 +1,12 @@
+---
+  - hosts: all
+    tasks:
+    - name: Update submodules
+      shell: git submodule update --init --recursive
+    - name: Make symlinks
+      file: src={{ item.src }} dest={{ item.dst }} state=link force=yes
+      with_items:
+        - { src: "{{ playbook_dir }}/vim/.vimrc.first", dst: '~/.vimrc.first' }
+        - { src: "{{ playbook_dir }}/vim/.vimrc.last", dst: '~/.vimrc.last' }
+        - { src: "{{ playbook_dir }}/vim/.vimrc.plugins", dst: '~/.vimrc.plugins' }
+        - { src: "{{ playbook_dir }}/vim/vimconf/.vimrc", dst: '~/.vimrc' }
