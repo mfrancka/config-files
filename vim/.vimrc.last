@@ -49,9 +49,8 @@ let g:lightline = {
             \ "\<C-s>" : 'S-B',
             \ '?'      : '      ' }
  map <F4> :NERDTreeToggle<CR>
-"let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(81,82),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
-"let &colorcolumn="80,".join(range(120,999),",")
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = {
             \'mode':'active',
@@ -65,3 +64,12 @@ let g:syntastic_puppet_checkers = ['puppetlint', 'puppet']
 "My Keybindings
 "Remove search highlight when enter hit after search
 noremap <CR> :noh<CR>
+
+"Python autocommands
+augroup FileTypePython
+    autocmd!
+    autocmd BufNewFile,BufRead *.py set ft=python tw=79
+augroup END
+
+"UI
+set wrap            " wrap lines
