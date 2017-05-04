@@ -49,7 +49,6 @@ let g:lightline = {
             \ "\<C-s>" : 'S-B',
             \ '?'      : '      ' }
  map <F4> :NERDTreeToggle<CR>
-let &colorcolumn=join(range(81,82),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = {
@@ -69,6 +68,7 @@ noremap <CR> :noh<CR>
 augroup FileTypePython
     autocmd!
     autocmd BufNewFile,BufRead *.py set ft=python tw=79
+    autocmd BufNewFile,BufRead *.py let &colorcolumn=join(range(81,82),",")
 augroup END
 
 "UI
