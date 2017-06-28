@@ -1,0 +1,22 @@
+---
+  - hosts: all
+    tasks:
+    - name: Update submodules
+      shell: git submodule update --init --recursive
+    - name: Make symlinks
+      file: src={{ item.src }} dest={{ item.dst }} state=link force=yes
+      with_items:
+        - { src: "{{ playbook_dir }}/neovim/nvimrc.plugins", dst: '~/.nvim.plugins' }
+        - { src: "{{ playbook_dir }}/neovim/nvimrc", dst: '~/.config/nvim/init.vim' }
+    - name: "Install plugins"
+      shell: wget https://github.com/Shougo/deoplete.nvim/tarball/master -O - | tar xz  -C ~/.config/nvim --strip-components=1
+    - name: "Install vim-plug"
+      shell: curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    - name: "pip neovim"
+      shell: pip install neovim --user
+    - name: "pip3 neovim"
+      shell: pip3 install neovim --user
+    - name: "Install plugins"
+      shell: nvim +PlugInstall +qall
+    - name: "Install other plugin" 
+      shell: nvim +UpdateRemotePlugins +qall
