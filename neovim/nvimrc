@@ -277,3 +277,5 @@ endif
     " Startify, the fancy start page
     let g:ctrlp_reuse_window = 'startify' " don't split in startify
 
+"Disable highlight after enter
+noremap <CR> :noh<CR>

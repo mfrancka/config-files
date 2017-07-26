@@ -13,3 +13,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'simnalamburt/vim-mundo',{'on': 'GundoToggle'}
 Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugin' }
+Plug 'zchee/deoplete-jedi'
+Plug 'godlygeek/tabular'
