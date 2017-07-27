@@ -16,3 +16,4 @@ Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugin' }
 Plug 'zchee/deoplete-jedi'
 Plug 'godlygeek/tabular'
+Plug 'nvie/vim-flake8'

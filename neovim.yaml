@@ -32,6 +32,7 @@
         - curl
         - python-jedi
         - python3-jedi
+        - flake8
       when:
         ansible_user_id == 'root'
     - name: Make directory for neovim source
@@ -54,3 +55,13 @@
       shell: $HOME/neovim/bin/nvim +PlugInstall +qall
     - name: "Install other plugin"
       shell: $HOME/neovim/bin/nvim +UpdateRemotePlugins +qall
+    - name: Make directory for neovim executable
+      file:
+        state: directory
+        path: ~/bin
+    - name: Make symlinks
+      file: src='~/neovim/bin/nvim' dest='~/bin/nvim' state=link
+    - name: "Add path to .bashrc"
+      lineinfile:
+        dest: '~/.bashrc'
+        line: 'export PATH=$PATH:~/bin'
