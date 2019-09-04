@@ -1,9 +1,11 @@
-install:
-  https://github.com/tmux-plugins/vim-tmux -> fonts for powerline
-  or try fonts-powerline (from apt)
-  Change terminall settings (terminator) To use fonts
-
-  put tmux.conf in ~/.tmux.conf
-  clone tmux plugins
-# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-# export TERM=xterm-256colors
+---
+- hosts: all
+  tasks:
+    - name: clone tmux plugin
+      git:
+        repo: https://github.com/tmux-plugins/tpm
+        dest: ~/.tmux/plugins/tpm
+    - name: Make symlink for configuration
+      file: src={{ item.src }} dest={{ item.dst }} state=link force=yes
+      with_items:
+          - { src: "{{ playbook_dir }}/tmux/tmux.conf", dst: '~/.tmux.conf' }
